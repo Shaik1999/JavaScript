@@ -1,0 +1,399 @@
+(1)Create variables of different data types: string, number, boolean, object, array.
+   Convert between different data types using type conversion functions like String(), Number(), Boolean().
+   Combine strings using concatenation and template literals.
+
+let string = "Welcome";
+let number = 26;
+let isBoolean = true;
+let object = { name: "shaik" };
+let array = [1, 2, 3, 4, 5, 6];
+
+let num = 16;
+let numString = String(num); 
+let str = "22";
+let stringNum = Number(str); 
+let str1 = "true";
+let stringBool = Boolean(str1); 
+
+let firstName = "Shaik";
+let lastName = "Althaf";
+let strConcat = firstName + " " + lastName; 
+let tempLiterals = `${firstName} ${lastName}`;
+
+console.log("string variable : ",string);
+console.log("number variable : ",number);
+console.log("boolean variable : ",isBoolean);
+console.log("object variable : ",object.name);
+console.log("array variable : ",array);
+console.log("number to string : ",numString);
+console.log("string to number : ",stringNum);
+console.log("string to boolean : ",stringBool);
+console.log("string concat : ",strConcat);
+console.log("concat template literals : ",tempLiterals);
+----------------------Output----------------------------
+VM64:20 string variable :  Welcome
+VM64:21 number variable :  26
+VM64:22 boolean variable :  true
+VM64:23 object variable :  shaik
+VM64:24 array variable :  (6) [1, 2, 3, 4, 5, 6]
+VM64:26 number to string :  16
+VM64:27 string to number :  22
+VM64:28 string to boolean :  true
+VM64:30 string concat :  Shaik Althaf
+VM64:31 concat template literals :  Shaik Althaf
+
+
+
+
+
+----------------------------calculator app--------------------------
+  
+function Add(a,b){
+    return a + b;
+}
+
+function Substract(a,b){
+    return a-b;
+}
+
+function Multiply(a, b){
+    return a * b;
+}
+
+function Divide(a,b){
+    return a/b;
+}
+
+let firstNumber = parseFloat(prompt("Enter the first Number"));
+let secondNumber = parseFloat(prompt("Enter the second Number"));
+let operator = prompt("Enter the operator")
+let result;
+
+switch(operator){
+     case '+' :
+        result = Add(firstNumber, secondNumber)
+        break;
+     case '-' :
+        result = Substract(firstNumber, secondNumber)
+        break;
+     case '*' :
+        result = Multiply(firstNumber, secondNumber)
+        break;
+     case '/' :
+        result = Divide(firstNumber, secondNumber)
+        break;
+     default :
+         result = "Invalid Operator";
+         break;
+}
+console.log("result is : ",result);
+alert(`Is ${firstNumber} greater than ${secondNumber}? ${firstNumber > secondNumber}`);
+
+--------------------output-----------------------
+VM68: result is :  12
+------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+(3)Use comparison operators to compare values and expressions.
+    Implement logical operators in control flow conditions.
+  
+let age = parseInt(prompt("Enter the age"));
+let hasLicense = confirm("Do you have a driving license");
+if(age >= 18 && hasLicense){
+    console.log("you can drive");
+}
+else{
+    console.log("you cannot drive");
+}
+--------------------Output----------------------
+VM72: you can drive
+
+  -----------------------------------------------------------------------------------------------------------------------------------------
+(4)Use a loop to iterate through an array and perform an operation on each element.
+  
+let numbers = [1,2,3,4,5,6];
+function square(number){
+    return number * number;
+}
+let numberList = [];
+for(let i = 0; i < numbers.length; i++){
+    let result = square(numbers[i])
+    numberList.push(result)
+}
+console.log(numberList);
+--------------------output-------------------------
+VM76:18 (6) [1, 4, 9, 16, 25, 36]
+
+  -------------------------------------------------------------------------------------------------------------------------------------------------
+
+  (5)Write a function that calculates the area of a rectangle given its length and width.
+  
+let length = parseFloat(prompt("Enter the length"));
+let width = parseFloat(prompt("Enter the width"));
+
+function rectanglearea(length, width){
+    return length * width;
+}
+let result = rectanglearea(length, width);
+
+console.log(result);
+--------------------------output--------------------------
+VM80:9 36
+
+ ------------------------------------------------------------------------------------------------------------------------------------------------
+(6) Implement a function that returns the factorial of a given number.
+  
+let number = parseFloat(prompt("Enter the number"));
+     let fact =1;
+     function factorial(number){
+        for(let i = 1; i <= number; i++){
+               fact = fact * i;
+
+        }
+        return fact;
+     }
+
+     let result = factorial(number);
+     console.log(result);
+-----------------------output--------------------------
+VM92: 720
+----------------------------------------------------------------------------------------------------------------------------------------------------
+  (7)Create a function that determines if a number is prime.
+  
+ let number = parseFloat(prompt("Enter the number"));
+     let i,c =0;
+
+     function prime(n){
+            for(i = 1; i <= n; i++){
+                if(n%i == 0){
+                    c++;
+                }
+            }
+            return c;
+     }
+     let result = prime(number);
+
+     if(result == 2){
+        console.log("prime number");
+     }
+      else{
+        console.log("Not a prime number");
+      }
+
+----------------------------output-------------------------
+VM100: prime number
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+  (7)Convert a regular function to an arrow function.
+  
+     let x = parseFloat(prompt("Enter the number1"));
+     let y = parseFloat(prompt("Enter the number2"));
+
+      let add = (x,y) =>{
+        return x + y;
+      }
+      let result = add(x,y);
+      console.log(result);
+-------------------output-----------------------
+VM104: 12
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+  (8) Use function expressions to create functions and assign them to variables.
+  
+let x = parseFloat(prompt("Enter the number1"));
+     let y = parseFloat(prompt("Enter the number2"));
+
+       let sum = function(x,y){
+        return x + y;
+       }
+       let result = sum(x,y);
+       console.log(result);
+------------------output---------------------------
+VM108: 6
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  (9) Create a function that intentionally throws an error and use a try...catch block to handle it.
+  
+let x = parseFloat(prompt("Enter the number1"));
+     let y = parseFloat(prompt("Enter the number2"));
+
+     function dividebyzero(a, b){
+        if(b == 0){
+            throw new Error("Number cannot divide by zero");
+        }
+        return a/b;
+     }
+
+     try{
+        let result = dividebyzero(x,y);
+        console.log(result);
+     }
+     catch(error){
+        console.error("An error occured", error.message);
+     }
+----------------------output-------------------------
+VM185: An error occured Number cannot divide by zero
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------------
+  (11) Write a function that returns a promise and resolves with a specific value.
+  
+function promiseReturn(value){
+        return new Promise((resolve,reject) => {
+            resolve(value);
+        });
+     }
+     promiseReturn('Hello World')
+     .then(result =>{
+        console.log(result);
+     })
+     .catch(error => {
+        console.error(eror.message);
+     });
+----------------output----------------------
+VM189: Hello World
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  (12) Chain promises to simulate a sequence of asynchronous operations, like fetching data from a server.
+  
+function userData(userId){
+        return new Promise((resolve,reject) => {
+            setTimeout(() =>{
+                  if(userId == 123){
+                    let user = {id: userId, name : 'Shaik', Age : 24};
+                    resolve(user);
+                  }
+                  else{
+                    reject("user not found");
+                  }
+            }, 1000)
+        });
+     }
+
+     function userPosts(user){
+        return new Promise((resolve,reject) => {
+            setTimeout(() => {
+                if(user.id == 123){
+                    let posts = ['post1', 'post2', 'post3'];
+                    resolve(posts);
+                }
+                else{
+                    reject("posts not found");
+                }
+            }, 1500)
+        });
+     }
+
+     userData(123).then(user =>{
+        console.log("userdata is : ", user);
+        return userPosts(user);
+     }).then(posts =>{
+        console.log("userposts is : ", posts);
+     }).catch(error => {
+        console.log(error.message)
+     });
+--------------------output---------------------
+VM193: userdata is :  {id: 123, name: 'Shaik', Age: 24}
+VM193: userposts is :  (3) ['post1', 'post2', 'post3']
+
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  (13) Implement a scenario where you're logging something in the finally block after a promise resolves or rejects.
+  
+function userData(userId){
+        return new Promise((resolve,reject) => {
+            setTimeout(() =>{
+                  if(userId == 123){
+                    let user = {id: userId, name : 'Shaik', Age : 24};
+                    resolve(user);
+                  }
+                  else{
+                    reject("user not found");
+                  }
+            }, 1000)
+        });
+     }
+     
+     userData(123).then(user => {
+        console.log(user);
+     }).catch(error => {
+        console.error("An error occured");
+     }).finally(() => {
+        console.log("finally block will always execute");
+     })
+-------------------output-------------------
+VM197: {id: 123, name: 'Shaik', Age: 24}
+VM197: finally block will always execute
+
+  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  
+  Mini Project - Tip Calculator
+
+  ------------------HTML Code--------------------
+  <div class="tip-calculator">
+        <h1>Tip Calculator</h1>
+        <label for="billAmount">Bill Amount:</label>
+        <input type="number" id="billAmount">
+        
+        <label for="tipPercentage">Tip Percentage:</label>
+        <input type="number" id="tipPercentage">
+        
+        <button onclick="calculateTip()">Calculate Tip</button>
+        
+        <p>Total Bill: <span id="totalBill"></span></p>
+        <p>Tip Amount: <span id="tipAmount"></span></p>
+      </div> 
+
+  -----------------CSS Code-----------------------
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+  }
+  
+  .tip-calculator {
+    border: 2px solid #333;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 300px;
+  }
+  
+  label, input {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  p {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+
+-------------------JavaScript Code-----------------
+  function calculateTip() {
+  let billAmount = parseFloat(document.getElementById("billAmount").value);
+  let tipPercentage = parseFloat(document.getElementById("tipPercentage").value);
+
+  if (isNaN(billAmount) || isNaN(tipPercentage)) {
+    alert("Please enter valid numbers.");
+    return;
+  }
+
+  let tipAmount = (billAmount * tipPercentage) / 100;
+  let totalBill = billAmount + tipAmount;
+
+  document.getElementById("tipAmount").textContent = tipAmount.toFixed(2);
+  document.getElementById("totalBill").textContent = totalBill.toFixed(2);
+}
+
+-------------------output--------------------
+  Bill Amount : 1000
+  Tip percentage : 10
+
+  totalBill : 1100
+  tipAmount : 100
