@@ -397,3 +397,95 @@ VM197: finally block will always execute
 
   totalBill : 1100
   tipAmount : 100
+------------------------------------------------------------------------------------------------------------------------------------------------------
+(14)Create an object called user with properties like name, email, and age. Add a method to display user information. Then, create instances of user and call the method to display their information.
+
+let user = {
+  name: "John",
+  email: "john@example.com",
+  age: 30,
+  display: function () {
+    console.log(`Name: ${this.name}, Email: ${this.email}, Age: ${this.age}`);
+  }
+};
+
+user.display();
+
+-------------------ouput----------------------
+Name: John, Email: john@example.com, Age: 30
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+(15)Create an object called book that represents a book in an inventory. Include properties like title, author, ISBN, and price. Write a function that takes an array of book objects and finds the total 
+     price of all the books in the inventory.
+
+  let books = [
+  { title: "Book 1", author: "Author 1", ISBN: "12345", price: 25 },
+  { title: "Book 2", author: "Author 2", ISBN: "67890", price: 30 }
+];
+
+function calculateTotalPrice(books) {
+  let total = 0;
+  for (let book of books) {
+    total += book.price;
+  }
+  return total;
+}
+
+const totalPrice = calculateTotalPrice(books);
+console.log(`Total Price: $${totalPrice}`);
+
+-----------------output----------------
+Total Price: $55
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+(16)Create an object called cart to represent a shopping cart. Implement methods to add items to the cart and calculate the total cost of the items in the cart.
+
+    let cart = {
+  items: [],
+  addItem(item) {
+    this.items.push(item);
+  },
+  getTotalCost() {
+    let total = 0;
+    for (const item of this.items) {
+      total += item.price;
+    }
+    return total;
+  }
+};
+
+const item1 = { name: "Product 1", price: 20 };
+const item2 = { name: "Product 2", price: 30 };
+
+cart.addItem(item1);
+cart.addItem(item2);
+
+console.log("Cart Items:", cart.items);
+console.log("Total Cost: $", cart.getTotalCost());
+
+--------------------output---------------
+Cart Items: (2) [{…}, {…}]0: {name: 'Product 1', price: 20}1: {name: 'Product 2', price: 30}length: 2[[Prototype]]: Array(0)
+VM183:22 Total Cost: $ 50
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+(17)Object Cloning in Javascript
+
+let obj1 = {
+    name: 'Shaik',
+    age: 26,
+    cars: [
+        { name: 'Toyota', price: 3600000 },
+        { name: 'Land Rover', price: 4600000 }
+    ]
+};
+
+let obj2 = Object.assign({}, obj1);
+
+obj2.name = 'Sameer';
+
+console.log(obj1.name);
+console.log(obj2.name);
+
+---------------output-------------
+Shaik
+VM187:15 Sameer
